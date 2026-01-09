@@ -58,7 +58,7 @@
         <label for="search">Search
             <input type="text" id="search">
         </label>
-
+       
     </form>
 
     <div id="result"></div>
@@ -69,16 +69,16 @@
         const resultDiv = document.getElementById("result");
         const items = ["banana", "apple", "mango", "orange", "grapes"];
 
-        // debounce function: makes sure a function only runs after a certain amount of time has passed
+      // debounce function: makes sure a function only runs after a certain amount of time has passed
         // since the last time it was called
         function debounce(func, delay) {
             // timer variable will keep track of the timeout
             let timer;
 
             // return a new function that will be used instead of calling func directly
-            //             debounce returns a new function.
+//             debounce returns a new function.
 
-            // This new function can accept any number of arguments(collected in args).
+// This new function can accept any number of arguments(collected in args).
             return (...args) => {
                 // clear any previous timer to reset the wait time
                 clearTimeout(timer);
@@ -121,11 +121,11 @@
         // searchInput.addEventListener("input", (e) => {
         //     debouncedSearch(e.target.value.trim());
         // });
-        searchInput.addEventListener("input", (e) => {
-            debouncedSearch(e.target.value.trim());
-        });
+    searchInput.addEventListener("input", (e) => {
+        debouncedSearch(e.target.value.trim());
+    });
 
-
+     
     </script>
 </body>
 
