@@ -1,0 +1,41 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="color-picker" type="color">
+    <div id="result"></div>
+    <script>
+        const colorPicker = document.getElementById("color-picker")
+        const result = document.getElementById("result")
+        colorPicker.addEventListener('input',function(){
+           document.body.style.backgroundColor=colorPicker.value 
+           result.textContent = colorPicker.value
+        })
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="color"  type="color">
+    <div id="result"></div>
+    <script>
+const color = document.getElementById('color')
+color.addEventListener('input',function(){
+    const body = document.body
+    body.style.backgroundColor = color.value
+    result.textContent =  color.value
+})
+
+    </script>
+</body>
+</html>

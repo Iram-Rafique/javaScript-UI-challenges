@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="product">
+        <p>Name: <span class="name">Product 1</span></p>
+        <p>Price: <span class="price">10</span></p>
+        <button class="addBtn">Add</button>
+    </div>
+
+    <div class="product">
+        <p>Name: <span class="name">Product 2</span></p>
+        <p>Price: <span class="price">20</span></p>
+        <button class="addBtn">Add</button>
+    </div>
+
+    <table id="cartTable"></table>
+
+    <script>
+        const addButtons = document.querySelectorAll('.addBtn');
+        const cartTable = document.getElementById('cartTable');
+
+        let cart = [];
+
+        addButtons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const productDiv = btn.parentElement;
+
+                const name = productDiv.querySelector('.name').textContent;
+                const price = Number(productDiv.querySelector('.price').textContent);
+
+                const existing = cart.find(item => item.name === name);
+
+                if (existing) {
+                    existing.quantity++;
+                } else {
+                    cart.push({
+                        name,
+                        price,
+                        quantity: 1
+                    });
+                }
+
+                renderCart();
+            });
+        });
+
+        function renderCart() {
+            let total = 0;
+
+            cartTable.innerHTML = `
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            `;
+
+            cart.forEach((item, index) => {
+                const row = document.createElement('tr');
+
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                row.innerHTML = `
+                    <td>${item.name}</td>
+                    <td>${item.price}</td>
+                    <td>${item.quantity}</td>
+                    <td>${itemTotal}</td>
+                    <td><button onclick="deleteItem(${index})">Delete</button></td>
+                `;
+
+                cartTable.appendChild(row);
+            });
+
+            // add overall total at bottom
+            const totalRow = document.createElement('tr');
+            totalRow.innerHTML = `
+                <td colspan="3"><strong>Overall Total</strong></td>
+                <td><strong>${total}</strong></td>
+                <td></td>
+            `;
+            cartTable.appendChild(totalRow);
+        }
+
+        function deleteItem(index) {
+            cart[index].quantity--;
+
+            if (cart[index].quantity <= 0) {
+                cart.splice(index, 1);  // remove item fully
+            }
+
+            renderCart();
+        }
+    </script>
+
+</body>
+
+</html>

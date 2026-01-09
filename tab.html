@@ -1,0 +1,84 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="tab">tab 1</button>
+    <button class="tab">tab 2</button>
+    <button class="tab">tab 3</button>
+    <div class="content">Tab1</div>
+    <div class="content">Tab2</div>
+    <div class="content">Tab3</div>
+    <script>
+        const tabs = document.querySelectorAll('.tab')
+        const tabContent = document.querySelectorAll('.content')
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                tabContent.forEach(item => {
+                    item.classList.remove('active')
+                })
+                tabContent[index].classList.toggle('active')
+            })
+
+        })
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            display: none;
+        }
+
+        .content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="tab">tab1</button>
+    <button class="tab">tab2</button>
+    <button class="tab">tab3</button>
+    <p class="content">content1</p>
+    <p class="content">content2</p>
+    <p class="content">content3</p>
+    <script>
+        const tabs = document.querySelectorAll('.tab')
+        const tabContent = document.querySelectorAll('.content')
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', function () {
+                tabContent.forEach(content => {
+                    content.classList.remove('active')
+                })
+                tabContent[index].classList.add('active')
+            })
+
+        })
+
+
+    </script>
+</body>
+
+</html>

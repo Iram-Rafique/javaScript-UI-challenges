@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="email" type="email" placeholder="Enter email">
+    <div id="result"></div>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const result = document.getElementById('result');
+
+        emailInput.addEventListener('input', function () {
+            const email = emailInput.value;
+
+            if (!email.includes('@')) {
+                result.textContent = "";
+                return;
+            }
+
+            const str = email.split('@');
+            const user = str[0];
+            const domain = str[1];
+            let masked = "";
+
+            for (let i = 0; i < user.length; i++) {
+                if (i === 0) {
+                    masked += user[i]; // keep first char
+                } else if (i === user.length - 1) {
+                    masked += user[i]; // keep last char
+                } else {
+                    masked += "*"; // mask middle
+                }
+            }
+
+            result.textContent = masked + "@" + domain;
+        });
+    </script>
+</body>('')
+
+</html>

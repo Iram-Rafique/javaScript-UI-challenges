@@ -1,0 +1,174 @@
+<!-- <!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Minimal Table</title>
+    <style>
+        /* Minimal table reset + layout */
+        table {
+            width: 400px;
+            /* full width but can be set to a fixed width */
+            border-collapse: collapse;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+
+        /* cells */
+        th,
+        td {
+            padding: 8px 10px;
+            /* breathing room inside cells */
+            border: 1px solid #ddd;
+            /* subtle cell borders */
+            text-align: left;
+            font-size: 14px;
+        }
+
+        /* header row */
+        thead th {
+            background: #f3f4f6;
+            /* light gray header */
+            font-weight: 600;
+        }
+
+        /* optional zebra striping for readability */
+        tbody tr:nth-child(even) {
+            background: #fbfbfb;
+        }
+
+        /* small hover affordance */
+        tbody tr:hover {
+            background: #fff7e6;
+        }
+
+        caption {
+            caption-side: top;
+            text-align: left;
+            padding: 6px 0;
+            font-weight: 600;
+        }
+table {
+  animation: moveAround 3s ease-in-out infinite;
+}
+
+/* Keyframes for the 4-step path */
+@keyframes moveAround {
+  0%   { transform: translate(0, 0); }          /* start */
+  25%  { transform: translate(100px, 0); }     /* go left */
+  50%  { transform: translate(100px, 100px); }/* then up */
+  75%  { transform: translate(0, 100px); }     /* then right */
+  100% { transform: translate(0, 0); }          /* then down → back */
+}
+
+    </style>
+</head>
+
+<body>
+
+    <table>
+        <caption>Team members</caption>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alice Smith</td>
+                <td>Designer</td>
+                <td>alice@example.com</td>
+                <td>London</td>
+            </tr>
+            <tr>
+                <td>Ben Carter</td>
+                <td>Developer</td>
+                <td>ben@example.com</td>
+                <td>Manchester</td>
+            </tr>
+            <tr>
+                <td>Carla Reyes</td>
+                <td>PM</td>
+                <td>carla@example.com</td>
+                <td>Remote</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 2px solid black;
+        }
+
+        table {
+            animation: move 2s ease-in-out infinite;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: aqua;
+        }
+
+        @keyframes move {
+  0% { transform: translate(0px, 0px); }
+  25% { transform: translate(100px, 0px); }
+  50% { transform: translate(100px, 100px); }
+  75% { transform: translate(0px, 100px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+
+            <tr>
+                <th>name</th>
+                <th>Class</th>
+                <th>School</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Noor</td>
+                <td>P 3.10</td>
+                <td>Mearns</td>
+            </tr>
+            <tr>
+                <td>Ben Carter</td>
+                <td>Developer</td>
+                <td>ben@example.com</td>
+            </tr>
+            <tr>
+                <td>Ben Carter</td>
+                <td>Developer</td>
+                <td>ben@example.com</td>
+            </tr>
+            <tr>
+                <td>Ben Carter</td>
+                <td>Developer</td>
+                <td>ben@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

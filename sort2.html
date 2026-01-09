@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="userform">
+        <label for="">Name
+            <input id="name" type="text"></label>
+        <label for="">Eamil
+            <input id="age" type="date"></label>
+        <label for="">Income
+            <input id="income" type="text"></label>
+        <input type="submit">
+    </form>
+<table id="userTable"></table>
+<button id="ageSort">Sort by age</button>
+<button id="incomeSort">Sort by age</button>
+    <script>
+        const userform = document.getElementById('userform')
+        const ageSort = document.getElementById('ageSort')
+        const incomeSort = document.getElementById('incomeSort')
+        let users = []
+        userform.addEventListener('submit', function (e) {
+            e.preventDefault()
+            const name = document.getElementById('name').value
+            const age = document.getElementById('age').value
+            const income = document.getElementById('income').value
+            users.push({ name, age, income })
+            displayUser()
+        })
+
+        function displayUser() {
+            const table = document.getElementById('userTable')
+            table.innerHTML = ''
+            table.innerHTML = `
+             
+                <tr>
+                    <th>Name</th>
+                    <th>DOB</th>
+                    <th>Income</th>
+                </tr>`
+
+            users.forEach(user => {
+                const row = document.createElement('tr')
+                row.innerHTML = `
+<tr>
+    <td>${user.name}</td>
+    <td>${user.age}</td>
+    <td>${user.income}</td>
+</tr>
+
+`
+                table.appendChild(row)
+
+            })
+
+        }
+
+
+    ageSort.onclick = function(){
+        users.sort((a,b)=> new Date(a.age) - new Date(b.age))
+           displayUser()
+
+    }
+    
+        incomeSort.onclick = function () {
+            users.sort((a, b) => (a.income) - (b.income))
+            displayUser()
+
+        }
+
+
+
+
+
+
+        console.log(users)
+
+    </script>
+</body>
+
+</html>

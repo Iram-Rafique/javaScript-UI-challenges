@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form id="user-form">
+    <input id="email" type="email">
+   </form> 
+   <p id="result"></p>
+   <script>
+const form = document.getElementById('user-form')
+const email = document.getElementById('email')
+const result = document.getElementById('result')
+form.addEventListener('input',function(){
+const value = email.value
+const str = value.split('@')
+const user = str[0]
+const domain = str[1]
+let masked = ''
+for (let i = 0; i < user.length; i++) {
+   if(i=== 0){
+    masked += user[i]
+   }
+   else if(i === user.length-1){
+    masked += user[i]
+   }
+   else {
+    masked += '*'
+   }
+    
+}
+result.textContent = masked +'@'+ domain
+})
+   </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 500px;
+        }
+
+        button {
+            display: none;
+            background-color: brown;
+            display: none;
+            /* position is must */
+            position: fixed;
+            /* added */
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="scrollBtn">scroll to top</button>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <div>1</div>
+    <script>
+        const scrollBtn = document.getElementById('scrollBtn')
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 500) {
+                scrollBtn.style.display = 'block'
+            }
+            else {
+                scrollBtn.style.display = 'none'
+            }
+
+        })
+        scrollBtn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        })
+
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 600px;
+        }
+
+        .scroll-btn {
+            display: none;
+            background-color: aqua;
+                position: fixed;
+            /* added */
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="scroll-btn">scroll to top</button>
+    <div>1</div>
+    <div>3</div>
+    <div>3</div>
+    <div>4</div>
+    <script>
+        const btn = document.querySelector('.scroll-btn')
+        window.addEventListener('scroll', function () {
+            if (scrollY > 300) {
+                btn.style.display = 'block'
+            }
+            else {
+                btn.style.display = 'none'
+            }
+        })
+        btn.addEventListener('click', function () {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+        })
+
+    </script>
+</body>
+
+</html>

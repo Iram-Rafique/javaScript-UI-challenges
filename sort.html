@@ -1,0 +1,159 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="userform">
+        <label for="">Name
+            <input type="text" id="name"></label>
+        <label for="">DOB
+            <input type="date" id="dob"></label>
+        <label for="">Income
+            <input type="number" id="income"></label>
+        <input type="submit">
+    </form>
+    <button id="age-sort">Sort by age </button>
+    <button id="income-sort">Sort by income </button>
+    <table>
+
+    </table>
+    <script>
+        const userform = document.getElementById('userform')
+        const ageSort = document.getElementById('age-sort')
+        const incomeSort = document.getElementById('income-sort')
+        let people = []
+        console.log(people)
+        userform.addEventListener('submit', function (event) {
+            event.preventDefault()
+            const name = document.getElementById('name').value
+            const dob = document.getElementById('dob').value
+            const income = document.getElementById('income').value
+            people.push({ name, dob, income })
+            renderTable()
+
+        });
+        function renderTable() {
+            let table = document.querySelector('table')
+
+            table.innerHTML = `
+               <tr>
+                <th>Name</th>
+                <th>Dob</th>
+                <th>Income</th>
+                </tr>`;
+
+
+            people.forEach(person => {
+                const row = document.createElement('tr')
+                row.innerHTML = `
+                <td>${person.name}</td>
+                <td>${person.dob}</td>
+                <td>${person.income}</td>`
+                console.log(row)
+                table.appendChild(row)
+
+            })
+        }
+
+
+        //old to new
+        ageSort.onclick = function () {
+            people.sort((a, b) => {
+              return  new Date(a.dob) - new Date(b.dob)
+            })
+            renderTable()
+        }
+        // high to low
+        incomeSort.onclick=function(){
+            people.sort((a,b)=>{
+return b.income - a.income
+            })
+                renderTable();
+        }
+    </script>
+</body>
+
+</html> -->
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="userform" action="">
+        <label for="">Name
+            <input id="name" type="text"></label>
+        <label for="">DOB
+            <input id="date" type="date"></label>
+        <label for="">Income
+            <input id="income" type="text"></label>
+
+
+
+    </form>
+    <button id="submit">Sub</button>
+    <table id="table"></table>
+    <button id="ageSort">Sort by age</button>
+
+    <script>
+        const submitBtn = document.getElementById('submit')
+        const result = document.getElementById('result')
+        const ageSort = document.getElementById('ageSort')
+        let users = []
+
+
+        submitBtn.addEventListener('click', function () {
+            const name = document.getElementById('name').value
+            const dob = document.getElementById('date').value
+            const income = document.getElementById('income').value
+
+
+            users.push({ name, dob, income })
+            console.log(users)
+            showusers()
+
+        })
+        function showusers() {
+            const table = document.getElementById('table')
+            table.innerHTML = ''
+            table.innerHTML = `
+            <tr>
+               <th>Name</th>
+               <th>DOB</th>
+               <th>Income</th>
+               </tr>
+               `
+
+            users.forEach(user => {
+                const row = document.createElement('tr')
+                row.innerHTML = `
+                    <td>${user.name}</td>
+                    <td>${user.dob}</td>
+                    <td>${user.income}</td>
+                       
+                
+                `
+               
+                table.appendChild(row)
+            })
+        }
+ageSort.onclick=function(){
+    users.sort((a,b)=>new Date(a.dob)-new Date(b.dob))
+    showusers()
+}
+      
+    </script>
+</body>
+
+</html> -->
+
+

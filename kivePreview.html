@@ -1,0 +1,25 @@
+<!-- • Live preview
+Example: Markdown editor or text input showing live formatted output. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <input id="text" type="text">
+    <div id="result"></div>
+</body>
+<script>
+    const inputText = document.getElementById('text')
+    const result = document.getElementById('result')
+    inputText.addEventListener('input', function () {
+        result.innerHTML = marked.parse(inputText.value)
+    })
+</script>
+
+</html>

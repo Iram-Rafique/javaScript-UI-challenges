@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Search Simplified</title>
+</head>
+
+<body>
+
+    <input id="search" type="text" placeholder="Search fruits">
+    <div id="result"></div>
+
+    <script>
+        const items = ["banana", "apple", "mango", "orange", "grapes"];
+        const result = document.getElementById('result');
+        const query = document.getElementById('search');
+function showResults(){
+
+    query.addEventListener('input', function () {
+        const queryValue = query.value.trim().toLowerCase();
+        if (!queryValue) return;
+        // Clear previous results
+        result.innerHTML = "";
+
+        // Filter items that match
+        const matched = items.filter(item =>
+            item.toLowerCase().includes(queryValue)
+        );
+
+        // Clear previous results
+        result.innerHTML = "";
+
+        if (matched.length === 0) {
+            result.textContent = 'not found';
+        } else {
+            // Show only filtered matches
+            matched.forEach(item => {
+                const para = document.createElement('p');
+                para.textContent = item;
+                result.appendChild(para);
+            });
+        }
+    });
+}
+        
+            // Debounce function
+            function debounce(func, delay) {
+                let timer;
+                return (...args) => {
+                    clearTimeout(timer);
+                    timer = setTimeout(() => func(...args), delay);
+                };
+            }
+    // Debounced version of showResults
+    const debouncedSearch = debounce(showResults, 1000);
+    </script>
+
+</body>
+
+</html>
+
+    </script>
+</body>
+
+</html>

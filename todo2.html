@@ -1,0 +1,129 @@
+<!-- this todo as it shows crud
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="text" type="text">
+    <input id="submit" type="submit">
+    <ul id="result"></ul>
+    <script>
+        const text = document.getElementById('text')
+        const submitBtn = document.getElementById('submit')
+        const result = document.getElementById('result')
+
+        let todo = []
+        submitBtn.addEventListener('click', function () {
+
+            let textValue = text.value
+            if (!textValue.trim()) return
+            todo.push(textValue)
+            text.value = ''
+            text.focus()
+            displayTodo()
+        })
+        function displayTodo() {
+            // always clear
+            result.innerHTML = ''
+
+            todo.forEach((item, index) => {
+                // keep inside the loop so crate multiple li
+                const li = document.createElement('li')
+
+                li.textContent = item
+                const deleteBtn = document.createElement('button')
+                deleteBtn.textContent = 'Delete'
+                deleteBtn.onclick = function () {
+                    todo.splice(index, 1)
+                    displayTodo()
+                }
+                const editBtn = document.createElement('button')
+                editBtn.textContent = 'edit'
+                editBtn.onclick = function () {
+                    text.value = item;        // put text back
+                    todo.splice(index, 1);    // remove old item
+                    displayTodo()
+                }
+                li.append(deleteBtn,editBtn)
+                result.appendChild(li)
+            }
+
+            )
+        }
+
+
+
+        // 👉 Use forEach when you want to DO something
+        // 👉 Use map when you want to CREATE something
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>hello</p>
+    <input id="text" type="text">
+
+    <button id="submitBtn">Submit</button>
+    <ul id="result"></ul>
+    <script>
+        const submitBtn = document.getElementById('submitBtn')
+        const text = document.getElementById('text')
+        const result = document.getElementById('result')
+        let todo = []
+        submitBtn.addEventListener('click', function () {
+            const textValue = text.value
+            todo.push(textValue)
+            console.log(todo)
+            text.focus()
+            text.value = ''
+            displayTodo()
+
+        })
+        function displayTodo() {
+            result.innerHTML = ''
+
+            todo.forEach((item, index) => {
+
+                const li = document.createElement('li')
+                li.textContent = item
+
+                const deleteBtn = document.createElement('button')
+                deleteBtn.textContent = 'Delete'
+                deleteBtn.onclick = () => {
+                    todo.splice(index, 1)
+                    displayTodo()
+                }
+                const editBtn = document.createElement('button')
+                editBtn.textContent = 'edit'
+               editBtn.onclick = () => {
+                    text.value = item
+                    console.log(text.value)
+                    todo.splice(index, 1)
+                    displayTodo()
+                }
+                li.append(deleteBtn, editBtn)
+                result.appendChild(li)
+
+            })
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="tab">tab1</button>
+    <button class="tab">tab2</button>
+    <button class="tab">tab3</button>
+    <div class="tab-content">1</div>
+    <div class="tab-content">2</div>
+    <div class="tab-content">3
+    </div>
+    <script>
+        const tabs = document.querySelectorAll('.tab')
+        const tabContent = document.querySelectorAll('.tab-content')
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', function () {
+                tabContent.forEach(item => {
+                    item.classList.remove('active')
+                })
+                tabContent[index].classList.toggle('active')
+
+            })
+        })
+    </script>
+</body>
+
+</html>

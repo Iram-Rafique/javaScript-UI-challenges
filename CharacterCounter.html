@@ -1,0 +1,49 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- • Character counters
+    Example: <textarea> shows 50/200 characters typed. -->
+    <!-- <textarea name="" id="text" rows="20" cols="50"></textarea>
+    <p id="result"></p>
+    <script>
+        const text = document.getElementById('text')
+        const result = document.getElementById('result')
+     
+        text.addEventListener('input', function () {
+            result.textContent = 'you typed: ' + text.value.length + 'characters'
+
+
+        })
+    </script>
+
+</body>
+
+</html> --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="text" rows="10" cols="10"></textarea>
+    <p id="result"></p>
+
+
+    <script>
+        const text = document.getElementById('text')
+        const result = document.getElementById('result')
+        text.addEventListener('input',function(){
+            result.textContent= `you typed ${text.value.length} characters`
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="add" type="text">
+    <button id="submit">SUBMIT</button>
+    <ul id="result"></ul>
+    <script>
+
+        const btn = document.getElementById('submit')
+        const result = document.getElementById('result')
+
+        btn.addEventListener('click', function () {
+            const input = document.getElementById('add')
+
+            let add = input.value
+// if no value dont submit
+            if (!add) { 
+                return
+            }
+
+            console.log(add)
+            const li = document.createElement('li')
+            li.textContent = add
+            result.appendChild(li)
+              input.value = ""    // empty input not value
+            input.focus()       // focus input not value
+
+
+            const deleteBtn = document.createElement('button')
+            deleteBtn.textContent = 'Delete'
+            li.appendChild(deleteBtn)
+            //onclick is not a function = 
+            deleteBtn.onclick = () => {
+                li.remove()
+            }
+               const editBtn = document.createElement('button')
+            editBtn.textContent = 'Edit'
+          
+            li.appendChild(editBtn)
+            //onclick is not a function = 
+           editBtn.onclick = () => {
+//             add is a string(the text you saved earlier)
+
+//                input.value is the place where the input box stores its text
+
+// So we say:
+
+// 👉 "Put this string back into the input box."
+              input.value = add
+                li.remove()
+                input.focus()
+            }
+
+        })
+    </script>
+</body>
+
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todo CRUD</title>
+</head>
+
+<body>
+
+    <input id="add" type="text">
+    <button id="submit">SUBMIT</button>
+    <ul id="result"></ul>
+
+    <script>
+        const input = document.getElementById('add');
+        const btn = document.getElementById('submit');
+        const result = document.getElementById('result');
+
+        let todos = []; // 🔹 DATA (state)
+
+        btn.addEventListener('click', () => {
+            if (!input.value.trim()) return;
+
+            todos.push(input.value); // CREATE
+            input.value = '';
+            input.focus();
+            render();
+        });
+
+        function render() { // READ
+            result.innerHTML = '';
+
+            todos.forEach((todo, index) => {
+                const li = document.createElement('li');
+                li.textContent = todo;
+
+                const delBtn = document.createElement('button');
+                delBtn.textContent = 'Delete';
+                delBtn.onclick = () => {
+                    todos.splice(index, 1); // DELETE
+                    render();
+                };
+
+                const editBtn = document.createElement('button');
+                editBtn.textContent = 'Edit';
+                editBtn.onclick = () => {
+                    input.value = todo;
+                    todos.splice(index, 1); // UPDATE (remove old)
+                    input.focus();
+                    render();
+                };
+
+                li.append(editBtn, delBtn);
+                result.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+<p>hello</p>
+    <input id="text" type="text">
+ 
+    <button id="submitBtn">Submit</button>
+    <script>
+        const submitBtn = document.getElementById('submitBtn ')
+        const text = document.getElementById('text')
+        submitBtn.addEventListener('click', function () {
+            const textValue = text.value
+            text.focus()
+            text.value()
+
+
+        })
+
+    </script>
+</body>
+
+</html>

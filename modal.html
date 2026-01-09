@@ -1,0 +1,65 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .modal.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: aliceblue;
+            padding: 20px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="openBtn">Open Modal</button>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <p>i am modal</p>
+            <button id="closeBtn">Close</button>
+        </div>
+    </div>
+    <script>
+        const OpenBtn = document.getElementById('openBtn')
+
+        const closeBtn = document.getElementById('closeBtn')
+        const modal = document.getElementById('modal')
+        OpenBtn.addEventListener('click', function () {
+            modal.classList.add('active')
+        })
+        closeBtn.addEventListener('click', function () {
+            modal.classList.remove('active')
+        })
+        modal.addEventListener('click', function (e) {
+            console.log('click')
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        })
+    </script>
+</body>
+
+</html>

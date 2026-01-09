@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+
+</head>
+<!-- 6be4b4c562f4114ed0b8fd1b93126c7e -->
+<body>
+    <div id="terms">
+        <p>You have 10 seconds to complete this quiz please agree to the term to start.</p>
+        <input type="checkbox"> I agree to the terms <br>
+        <button id="start-btn">Start Quiz</button>
+    </div>
+    <!-- time -->
+    <p id="timeContainer">0</p>
+    <div id="quiz-section">
+        <!-- 
+        quiz -->
+        <form id="quiz-form">
+            <div class="Quiz">
+                <label for="">1. Which language is used to make web pages interactive?</label><br>
+                <div class="btns">
+                    <input type="radio" name="q1" value="correct">JavaScript<br>
+                    <input type="radio" name="q1" value="wrong">Html<br>
+                    <input type="radio" name="q1" value="wrong">CSS<br>
+                </div>
+            </div>
+            <div class="Quiz">
+                <label for="">2.What does HTML stand for?</label><br>
+
+                <input type="radio" name="q2" value="wrong">Hyperlinks and Text Markup Language<br>
+                <input type="radio" name="q2" value="wrong">Home Tool Markup Language<br>
+                <input type="radio" name="q2" value="correct">HyperText Markup Language<br>
+            </div>
+            <div class="Quiz">
+                <label for="">3. Which language is used for styling web pages?</label><br>
+
+                <input type="radio" name="q3" value="wrong">JavaScript<br>
+                <input type="radio" name="q3" value="correct">CSS<br>
+                <input type="radio" name="q3" value="wrong">Html<br>
+            </div>
+            <input type="submit">
+        </form>
+        <p id="result"></p>
+    </div>
+    <script>
+        // agreement container
+
+
+        const quizForm = document.getElementById("quiz-form");
+        const quizSection = document.getElementById("quiz-section");
+        quizSection.style.display = "none";
+        timeContainer.style.display = "none";
+        const startBtn = document.getElementById("start-btn");
+        const terms = document.getElementById("terms");
+        startBtn.addEventListener("click", function () {
+            quizSection.style.display = "block";
+            timeContainer.style.display = "block";
+            terms.style.display = "none";
+        
+            let totaltime = 12;
+            let timer;
+            function setTimer() {
+                const timeContainer = document.getElementById("timeContainer");
+
+                let min = Math.floor(totaltime / 60);
+
+                let seconds = totaltime % 60;
+                if (seconds < 0) {
+                    seconds = 0;
+                }
+
+                timeContainer.innerText = min+ " : " + seconds;
+            }
+
+            timer = setInterval(() => {
+                if (totaltime > 0) {
+                    totaltime--;
+                    setTimer();
+                } else {
+                    clearInterval(timer); // stop timer
+                    quizForm.requestSubmit();//auto submit
+                    timeContainer.innerText = "Time's up!";
+                }
+            }, 1000);
+        
+            setTimer()
+        });
+
+        // quiz form
+        quizForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            console.log("Form submitted!");
+            let score = 0;
+            const result = document.getElementById("result");
+            let q1 = document.querySelector("input[name = 'q1']:checked")?.value;
+            let q2 = document.querySelector("input[name = 'q2']:checked")?.value;
+            let q3 = document.querySelector("input[name = 'q3']:checked")?.value;
+
+            if (q1 === "correct") score++;
+
+            if (q2 === "correct") score++;
+
+            if (q3 === "correct") score++;
+
+            result.textContent = score + "/3";
+        });
+
+
+    </script>
+</body>
+
+</html>

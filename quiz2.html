@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="quiz-form">
+        <div class="quiz">
+            <label for="">1. Which language is used to make web pages interactive?</label>
+            <div class="btns">
+                <input type="radio" name="q1" value="correct">JavaScript
+                <input type="radio" name="q1" value="wrong">HTML
+                <input type="radio" name="q1" value="wrong">CSS
+            </div>
+        </div>
+        <div class="quiz">
+            <label for="">2.What does HTML stand for?</label>
+            <div class="btns">
+                <input type="radio" name="q2" value="wrong">Hyperlinks
+                <input type="radio" name="q2" value="correct">HyperText Markup language
+                <input type="radio" name="q2" value="wrong">HyperText
+            </div>
+        </div>
+        <div class="quiz">
+            <label for="">3. Which language is used for styling web pages?</label>
+            <div class="btns">
+                <input type="radio" name="q3" value="correct">CSS
+                <input type="radio" name="q3" value="wrong">JavaScript
+                <input type="radio" name="q3" value="wrong">HTML
+                <input type="submit">
+
+            </div>
+        </div>
+    </form>
+    <div id="result"></div>
+    <div id="timeContainer"></div>
+    <script>
+
+
+        const quizForm = document.getElementById('quiz-form')
+        const result = document.getElementById('result')
+        quizForm.addEventListener('submit', function (event) {
+            event.preventDefault()
+            let score = 0
+            const q1 = document.querySelector('input[name = q1]:checked')?.value
+            const q2 = document.querySelector('input[name=q2]:checked')?.value
+            const q3 = document.querySelector('input[name=q3]:checked')?.value
+            if (q1 === 'correct') {
+                score++
+            }
+            if (q2 === 'correct') {
+                score++
+            }
+            if (q3 === 'correct') {
+                score++
+            }
+            result.textContent = 'Your score  ' + score + '/3'
+        })
+
+        let totalTime = 6;
+        let timer;
+
+        const setTimer = () => {
+            const timeContainer = document.getElementById('timeContainer');
+
+            let minutes = Math.floor(totalTime / 60);
+            let seconds = totalTime % 60;
+
+            timeContainer.innerText =
+                minutes + ':' + seconds.toString().padStart(2, '0');
+        };
+
+        timer = setInterval(() => {
+            if (totalTime > 0) {
+                totalTime--;
+                setTimer();
+            } else {
+                clearInterval(timer); // stop timer
+                quizForm.requestSubmit()
+                quizForm.querySelectorAll('input').forEach(i => i.disabled = true);
+                timeContainer.innerText = "Time's up!";
+            }
+        }, 1000); // ✅ ADD THIS
+
+        setTimer();
+    </script>
+</body>
+
+</html>

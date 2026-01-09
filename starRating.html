@@ -1,0 +1,84 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .star {
+            color: rgb(110, 109, 109);
+            font-size: 60px;
+        }
+
+        .star.active {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <span class="star" data-value="1">&#9734</span>
+    <span class="star" data-value="2">*</span>
+    <span class="star" data-value="3">*</span>
+    <p class="rating">Rating</p>
+    <script>
+        const stars = document.querySelectorAll('.star')
+        const ratingText = document.querySelector('.rating')
+
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                const rating = star.getAttribute('data-value')
+                stars.forEach(s => {
+                    s.classList.toggle('active', s.getAttribute('data-value') <= rating)
+
+                })
+                ratingText.textContent = 'Rating :' + rating
+            })
+        })
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .star {
+            color: gray;
+        }
+
+        .star.active {
+            color: gold;
+        }
+    </style>
+</head>
+
+<body>
+    <span class="star" data-value="1">*</span>
+    <span class="star" data-value="2">*</span>
+    <span class="star" data-value="3">*</span>
+    <span class="star" data-value="4">*</span>
+    <span class="star" data-value="5">*</span>
+    <div class="result"></div>
+    <script>
+        const stars = document.querySelectorAll('.star')
+        const result = document.querySelector('.result')
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                const rating = star.getAttribute('data-value')
+                stars.forEach(s => {
+                    s.classList.toggle('active', s.getAttribute('data-value') <= rating)
+                })
+result.textContent = rating
+            })
+
+        })
+    </script>
+</body>
+
+</html>

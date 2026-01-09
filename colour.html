@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="color" id="colorPicker">
+    <p id="value">Selected Color:</p>
+
+    <script>
+        const picker = document.getElementById('colorPicker');
+        const value = document.getElementById('value')
+
+        // Listen for color changes
+        // picker.value REMEMBER
+        picker.addEventListener('input', () => {
+            document.body.style.backgroundColor = picker.value;
+            value.textContent = picker.value
+        });
+    </script>
+
+
+
+</body>
+
+</html>

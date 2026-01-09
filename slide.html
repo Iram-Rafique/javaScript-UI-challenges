@@ -1,0 +1,162 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slide-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <div class="slide"><img src="image1.jpg" alt=""></div>
+        <div class="slide"><img src="image2.jpg" alt=""></div>
+        <div class="slide"><img src="image3.jpg" alt=""></div>
+        <div class="slide"><img src="image4.jpg" alt=""></div>
+    </div>
+    <div class="button">
+        <button class="next">Next</button>
+        <button class="back">Back</button>
+
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide')
+        const next = document.querySelector('.next')
+        const back = document.querySelector('.back')
+
+        slides.forEach((slide, index) => {
+            slide.style.left = `${index * 100}%`
+        })
+        let count = 0
+        function carasoul() {
+            if (count >= slides.length) {
+                count = 0
+            }
+            if (count < 0) {
+                count = slides.length - 1
+            }
+            slides.forEach(slide => {
+                slide.style.transform = `translateX(${-count * 100}%)`
+            })
+        }
+        next.addEventListener('click', function () {
+            count++
+            carasoul()
+        })
+        back.addEventListener('click', function () {
+            count--
+            carasoul()
+        })
+        carasoul()
+        // setInterval(() => {
+
+        //     count++
+        //     carasoul()
+        // }, 1000)
+
+
+    </script>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .slide-container {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <div class="slide"><img src="image1.jpg" alt=""></div>
+        <div class="slide"><img src="image2.jpg" alt=""></div>
+        <div class="slide"><img src="image3.jpg" alt=""></div>
+    </div>
+    <div class="buttons">
+        <button class="next">Next</button>
+        <button class="back">Back</button>
+    </div>
+    <script>
+        const slides = document.querySelectorAll('.slide')
+        const next = document.querySelector('.next')
+        const back = document.querySelector('.back')
+        slides.forEach((slide, index) => {
+            slide.style.left = `${index * 100}%`
+        })
+        let count = 0
+        function carasoul() {
+
+            if (count >= slides.length) {
+                count = 0
+            }
+            if (count < 0) {
+                count = slides.length - 1
+            }
+            slides.forEach(slide => {
+                slide.style.transform = `translateX(${-count * 100}%)`
+            })
+        }
+        carasoul()
+        next.onclick = function () {
+            count++
+            carasoul()
+        }
+        back.onclick = function () {
+            count--
+            carasoul()
+        }
+        setInterval(()=>{
+            count++
+            carasoul()
+        },1000)
+
+    </script>
+</body>
+
+</html>

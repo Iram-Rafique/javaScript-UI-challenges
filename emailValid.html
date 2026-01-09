@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="email">
+    <div id="error"></div>
+    <script>
+        const email = document.getElementById('email')
+        const error = document.getElementById('error')
+        email.addEventListener('input', function () {
+            const emailValue = email.value
+
+            const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+            //regex can only be tested not include
+            if (emailPattern.test(emailValue)) {
+                result.textContent = emailValue
+                error.textContent = ""
+            }
+            else {
+                result.textContent = ' '
+                error.textContent = 'enter a valid email please'
+            }
+
+        })
+    </script>
+</body>
+
+</html>

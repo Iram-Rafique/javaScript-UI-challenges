@@ -1,0 +1,122 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            /* very important trsnsition */
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+
+        }
+
+        .card:hover {
+            transform: rotateY(180deg);
+        }
+
+        .front,
+        .back {
+
+            background-color: aqua;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+
+        }
+
+        .card .back {
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="front">
+                <p>front of card</p>
+            </div>
+            <div class="back">
+                <p>back of card</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            perspective: 1000px;
+            width: 300px;
+            height: 300px;
+         
+        }
+
+        .container:hover .card {
+            transform: rotateY(180deg);
+        }
+
+        .card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+               transition: transform 2s ease-in-out;
+        }
+
+        .back,
+        .front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .back {
+            background-color: aqua;
+        }
+
+        .front {
+            background-color: bisque;
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="front">front</div>
+            <div class="back">back</div>
+        </div>
+    </div>
+</body>
+
+</html>

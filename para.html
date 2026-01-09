@@ -1,0 +1,85 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paragraph UWS Checker</title>
+</head>
+
+<body>
+
+
+    <textarea name="" class="textarea_uws_question"></textarea>
+    <button onclick="Paragraph_UWS()">Check for UWS</button>
+
+    <div class="resultDiv"></div>
+    <script>
+        function Paragraph_UWS() {
+            let textarea = document.querySelector(".textarea_uws_question");
+            let result = document.querySelector(".resultDiv");
+            let text = textarea.value;
+
+            let index = text.toLowerCase().lastIndexOf("uws");  // case sensitive
+
+            if (index === -1) {
+                result.textContent = 'Not found';
+            } else {
+                let spacesBefore = 0;
+                for (let i = 0; i < index; i++) {
+                    if (text[i] === " ")
+                     spacesBefore++;
+                }
+                result.textContent = `${spacesBefore}`;
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id="text" rows="10" cols="10"></textarea>
+<button id="countBtn" type="button">Check spaces before UWS</button>
+<p id="result"></p>
+    <script>
+        const text = document.getElementById('text')
+        const countBtn = document.getElementById('countBtn')
+        const result = document.getElementById('result')
+        countBtn.addEventListener('click', function () {
+            const textValue = text.value
+            const findUws = textValue.toLowerCase().lastIndexOf('uws')
+            if (findUws === -1) {
+                result.textContent = 'no found'
+            }
+            else {
+                let space = 0;
+                for (let i = 0; i < findUws; i++) {// loop up to last uws
+                    if (textValue[i] === ' ') {
+                        space++
+                    }
+                   
+                }
+                  result.textContent = space
+            }
+         
+
+        })
+    </script>
+</body>
+
+</html>
